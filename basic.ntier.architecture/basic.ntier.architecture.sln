@@ -13,6 +13,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "basic.ntier.architecture.da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "basic.ntier.architecture.api", "basic.ntier.architecture.api\basic.ntier.architecture.api.csproj", "{60A54E70-BC84-429A-ACF6-01A114A291E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "basic.ntier.architecture.common", "basic.ntier.architecture.common\basic.ntier.architecture.common.csproj", "{E5D13481-31D7-45B3-879A-6C6B7178AE61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{60A54E70-BC84-429A-ACF6-01A114A291E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60A54E70-BC84-429A-ACF6-01A114A291E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60A54E70-BC84-429A-ACF6-01A114A291E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5D13481-31D7-45B3-879A-6C6B7178AE61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5D13481-31D7-45B3-879A-6C6B7178AE61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5D13481-31D7-45B3-879A-6C6B7178AE61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5D13481-31D7-45B3-879A-6C6B7178AE61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

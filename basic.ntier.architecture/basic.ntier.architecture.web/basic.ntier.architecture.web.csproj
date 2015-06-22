@@ -251,9 +251,9 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\basic.ntier.architecture.common\basic.ntier.architecture.common.csproj">
-      <Project>{e5d13481-31d7-45b3-879a-6c6b7178ae61}</Project>
-      <Name>basic.ntier.architecture.common</Name>
+    <ProjectReference Include="..\basic.ntier.architecture.business\basic.ntier.architecture.business.csproj">
+      <Project>{63e8f213-a9ff-425e-a365-9ae62648371a}</Project>
+      <Name>basic.ntier.architecture.business</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -39,8 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasicManager.cs" />
+    <Compile Include="HelloWorld\IHelloWorldManager.cs" />
+    <Compile Include="HelloWorld\HelloWorldManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\basic.ntier.architecture.entity\basic.ntier.architecture.entity.csproj">
+      <Project>{b2f9487d-835d-4710-aed1-ab209e5571b3}</Project>
+      <Name>basic.ntier.architecture.entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\basic.ntier.architecture.repository\basic.ntier.architecture.repository.csproj">
+      <Project>{5c2d5738-c3d8-42b4-9e8a-6b5730478fc0}</Project>
+      <Name>basic.ntier.architecture.repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

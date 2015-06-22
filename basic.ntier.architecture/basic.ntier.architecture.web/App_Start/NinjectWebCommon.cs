@@ -5,8 +5,7 @@ namespace basic.ntier.architecture.web.App_Start
 {
     using System;
     using System.Web;
-    using basic.ntier.architecture.common.Abstract;
-    using basic.ntier.architecture.common.Concrete;
+    using basic.ntier.architecture.business.HelloWorld;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
     using Ninject.Web.Common;
@@ -61,7 +60,7 @@ namespace basic.ntier.architecture.web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IHelloWorldEntity>().To<HelloWorldEntity>();
+            kernel.Bind<IHelloWorldManager>().To<HelloWorldManager>();
         }        
     }
 }

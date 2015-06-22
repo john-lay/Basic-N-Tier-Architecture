@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using basic.ntier.architecture.common.Abstract;
+using basic.ntier.architecture.business.HelloWorld;
 
 namespace basic.ntier.architecture.web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IHelloWorldEntity helloWorldEntity;
+        private readonly IHelloWorldManager HelloWorld;
 
-        public HomeController(IHelloWorldEntity helloWorldEntity)
+        public HomeController(IHelloWorldManager HelloWorld)
         {
-            this.helloWorldEntity = helloWorldEntity;
+            this.HelloWorld = HelloWorld;
         }
 
         public ActionResult Index()
         {
-            ViewBag.Message = this.helloWorldEntity.SayHello();
+            ViewBag.Message = this.HelloWorld.SayHello();
 
             return View();
         }

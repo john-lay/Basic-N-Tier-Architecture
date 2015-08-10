@@ -33,7 +33,7 @@ namespace basic.ntier.architecture.repository.Core
         protected abstract DbParameter GetDbParameter(string name, DbType type, ParameterDirection direction);
         #endregion
 
-        protected abstract string GetDefaultConnectionStrig();
+        protected abstract string GetDefaultConnectionString();
         #endregion
 
         #region Constructors
@@ -244,7 +244,7 @@ namespace basic.ntier.architecture.repository.Core
 
         public string DefaultConnectionString
         {
-            get { return GetDefaultConnectionStrig(); }
+            get { return GetDefaultConnectionString(); }
         }
 
         protected string GetConnectionStringByName(string name)

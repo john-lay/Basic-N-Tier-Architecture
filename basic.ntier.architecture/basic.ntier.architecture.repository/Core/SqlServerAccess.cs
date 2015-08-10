@@ -79,9 +79,9 @@ namespace basic.ntier.architecture.repository.Core
         }
         #endregion
 
-        protected override string GetDefaultConnectionStrig()
+        protected override string GetDefaultConnectionString()
         {
-            return GetConnectionStringByName("LMSContext");
+            return GetConnectionStringByName("HelloWorldContext");
         }
     }
 }

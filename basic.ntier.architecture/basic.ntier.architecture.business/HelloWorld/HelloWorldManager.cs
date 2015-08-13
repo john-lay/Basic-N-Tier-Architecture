@@ -22,9 +22,9 @@ namespace basic.ntier.architecture.business.HelloWorld
             return "Hello World";
         }
 
-        public CustomerEntity GetCustomer(long customerId)
+        public CustomerEntity GetCustomer(CustomerEntity customer)
         {
-            return this.customerRepository.GetCustomer(customerId);
+            return this.customerRepository.GetCustomer(customer.CustomerId);
         }
     }
 }

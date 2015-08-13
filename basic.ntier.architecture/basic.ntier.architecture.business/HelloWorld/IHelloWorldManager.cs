@@ -11,6 +11,6 @@ namespace basic.ntier.architecture.business.HelloWorld
     {
         string SayHello();
 
-        CustomerEntity GetCustomer(long customerId);
+        CustomerEntity GetCustomer(CustomerEntity customer);
     }
 }

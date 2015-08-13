@@ -4,7 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AutoMapper;
+using basic.ntier.architecture.api.Models;
 using basic.ntier.architecture.business.HelloWorld;
+using basic.ntier.architecture.entity.Customer;
 
 namespace basic.ntier.architecture.api.Controllers
 {
@@ -24,7 +27,14 @@ namespace basic.ntier.architecture.api.Controllers
         public IHttpActionResult SayHello()
         {
             //return Ok(this.HelloWorld.SayHello());
-            return Ok(this.HelloWorld.GetCustomer(1));
+            var model = new CustomerModel
+            {
+                CustomerId = 1
+            };
+
+            var customer = Mapper.Map<CustomerModel, CustomerEntity>(model);
+
+            return Ok(this.HelloWorld.GetCustomer(customer));
         }
     }
 }

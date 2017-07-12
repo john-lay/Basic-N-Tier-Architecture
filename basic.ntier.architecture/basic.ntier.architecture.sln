@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "basic.ntier.architecture.web", "basic.ntier.architecture.web\basic.ntier.architecture.web.csproj", "{E8F3B2CA-7BDA-48B2-B2B5-4C34DAF12E3A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "basic.ntier.architecture.repository", "basic.ntier.architecture.repository\basic.ntier.architecture.repository.csproj", "{5C2D5738-C3D8-42B4-9E8A-6B5730478FC0}"
@@ -21,6 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{EB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{245222E9-50A2-4140-990A-DAD906678464}"
 	ProjectSection(SolutionItems) = preProject
+		CreateAuthDb.sql = CreateAuthDb.sql
 		CreateDummyDb.sql = CreateDummyDb.sql
 	EndProjectSection
 EndProject
@@ -34,6 +33,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StoredProcedures", "StoredP
 	ProjectSection(SolutionItems) = preProject
 		stp_getCustomer.sql = stp_getCustomer.sql
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{EECC91BB-6D9F-43F0-9C5D-5C9A0B17584F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "basic.ntier.architecture.auth", "basic.ntier.architecture.auth\basic.ntier.architecture.auth.csproj", "{E3A49ACA-B5C7-488A-A8BB-A8F8A7BE6D9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +68,10 @@ Global
 		{B2F9487D-835D-4710-AED1-AB209E5571B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2F9487D-835D-4710-AED1-AB209E5571B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2F9487D-835D-4710-AED1-AB209E5571B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3A49ACA-B5C7-488A-A8BB-A8F8A7BE6D9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3A49ACA-B5C7-488A-A8BB-A8F8A7BE6D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3A49ACA-B5C7-488A-A8BB-A8F8A7BE6D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3A49ACA-B5C7-488A-A8BB-A8F8A7BE6D9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,5 +84,6 @@ Global
 		{E5D13481-31D7-45B3-879A-6C6B7178AE61} = {0E838BE4-9E8A-47F5-85FC-6B683547B6B6}
 		{B2F9487D-835D-4710-AED1-AB209E5571B3} = {0E838BE4-9E8A-47F5-85FC-6B683547B6B6}
 		{8C966C13-D76C-4AE7-9210-1C3799D50D6C} = {245222E9-50A2-4140-990A-DAD906678464}
+		{E3A49ACA-B5C7-488A-A8BB-A8F8A7BE6D9D} = {EECC91BB-6D9F-43F0-9C5D-5C9A0B17584F}
 	EndGlobalSection
 EndGlobal

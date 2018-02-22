@@ -1,6 +1,5 @@
 ﻿namespace basic.ntier.architecture.auth.Models
 {
-    using System;
     using Microsoft.AspNet.Identity;
 
     /// <summary>

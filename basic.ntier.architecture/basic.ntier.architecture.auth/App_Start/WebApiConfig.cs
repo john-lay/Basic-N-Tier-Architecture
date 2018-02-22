@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
-
-namespace basic.ntier.architecture.auth
+﻿namespace basic.ntier.architecture.auth
 {
+    using System.Linq;
     using System.Net.Http.Formatting;
+    using System.Web.Http;
     using Newtonsoft.Json.Serialization;
 
     public static class WebApiConfig

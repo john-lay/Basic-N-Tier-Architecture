@@ -187,3 +187,5 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+basic.ntier.architecture/.vs/config/applicationhost.config
+basic.ntier.architecture/packages/

@@ -3,7 +3,6 @@
     using System;
     using System.Threading.Tasks;
     using System.Web.Http;
-    using Infrastructure;
     using Microsoft.AspNet.Identity;
     using Models;
     using Stores;

@@ -1,7 +1,6 @@
 ﻿namespace basic.ntier.architecture.auth.Stores
 {
     using System;
-    using System.Configuration;
     using System.Linq;
     using System.Threading.Tasks;
     using Infrastructure;

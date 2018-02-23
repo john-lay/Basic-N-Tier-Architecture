@@ -255,3 +255,55 @@ USE [master]
 GO
 ALTER DATABASE [AuthServer] SET  READ_WRITE 
 GO
+
+BEGIN TRANSACTION
+GO
+CREATE TABLE dbo.Clients
+	(
+	Id nchar(50) NOT NULL,
+	Secret nchar(50) NOT NULL,
+	Name nchar(100) NOT NULL,
+	ApplicationType tinyint NOT NULL,
+	Active bit NOT NULL,
+	RefreshTokenLifeTime smallint NOT NULL,
+	AllowedOrigin nchar(100) NOT NULL
+	)  ON [PRIMARY]
+GO
+ALTER TABLE dbo.Clients ADD CONSTRAINT
+	PK_Clients PRIMARY KEY CLUSTERED 
+	(
+	Id
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+GO
+ALTER TABLE dbo.Clients SET (LOCK_ESCALATION = TABLE)
+GO
+
+INSERT INTO dbo.Clients
+(Id, Secret, Name, ApplicationType, Active, RefreshTokenLifeTime, AllowedOrigin)
+VALUES ('consoleApp', 'lCXDroz4HhR1EIx8qaz3C13z/quTXBkQ3Q5hj7Qx3aA=', 'Console Application', 1, 1, 14400, '*')
+
+COMMIT
+
+BEGIN TRANSACTION
+GO
+CREATE TABLE dbo.RefreshToken
+	(
+	Id nchar(50) NOT NULL,
+	Subject nchar(50) NOT NULL,
+	ClientId nchar(50) NOT NULL,
+	IssuedUtc datetimeoffset(7) NOT NULL,
+	ExpiresUtc datetimeoffset(7) NOT NULL,
+	ProtectedTicket [nvarchar](max) NOT NULL
+	)  ON [PRIMARY]
+GO
+ALTER TABLE dbo.RefreshToken ADD CONSTRAINT
+	PK_RefreshToken PRIMARY KEY CLUSTERED 
+	(
+	Id
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+GO
+ALTER TABLE dbo.RefreshToken SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT

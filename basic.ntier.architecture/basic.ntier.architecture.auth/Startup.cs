@@ -6,6 +6,7 @@ namespace basic.ntier.architecture.auth
     using System;
     using System.Web.Http;
     using basic.ntier.architecture.auth.Infrastructure;
+    using basic.ntier.architecture.auth.Providers;
     using Microsoft.Owin.Cors;
     using Microsoft.Owin.Security.OAuth;
     using Owin;
@@ -27,8 +28,9 @@ namespace basic.ntier.architecture.auth
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                Provider = new SimpleAuthorizationServerProvider()
+                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(30),
+                Provider = new SimpleAuthorizationServerProvider(),
+                RefreshTokenProvider = new SimpleRefreshTokenProvider()
             };
 
             // Token Generation

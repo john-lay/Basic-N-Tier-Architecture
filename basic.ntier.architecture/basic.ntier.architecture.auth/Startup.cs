@@ -5,6 +5,7 @@ namespace basic.ntier.architecture.auth
 {
     using System;
     using System.Web.Http;
+    using basic.ntier.architecture.auth.Formats;
     using basic.ntier.architecture.auth.Infrastructure;
     using basic.ntier.architecture.auth.Providers;
     using Microsoft.Owin.Cors;
@@ -26,11 +27,12 @@ namespace basic.ntier.architecture.auth
         {
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {
+                //For Dev enviroment only (on production should be AllowInsecureHttp = false)
                 AllowInsecureHttp = true,
-                TokenEndpointPath = new PathString("/token"),
+                TokenEndpointPath = new PathString("/oauth2/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(30),
-                Provider = new SimpleAuthorizationServerProvider(),
-                RefreshTokenProvider = new SimpleRefreshTokenProvider()
+                Provider = new CustomOAuthProvider(),
+                AccessTokenFormat = new CustomJwtFormat("http://localhost:60217/")
             };
 
             // Token Generation

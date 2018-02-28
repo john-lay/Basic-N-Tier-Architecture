@@ -1,6 +1,8 @@
 ﻿namespace basic.ntier.architecture.auth.Controllers
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Security.Claims;
     using System.Threading.Tasks;
     using System.Web.Http;
@@ -41,17 +43,31 @@
             return Ok();
         }
 
-        [AllowAnonymous]
         [HttpPost]
         [Route("Claim")]
-        public async Task<IHttpActionResult> AddClaim()
+        [Authorize(Roles = "Admin")]
+        public async Task<IHttpActionResult> AddClaim([FromBody] string role)
         {
-            var claim = new Claim(ClaimTypes.Role, "Admin");
-            //var result = await userManager.AddClaimAsync("7c999972-8d82-4aad-a780-c19989f548e2", claim);
+            var identity = User.Identity as ClaimsIdentity;
+            var userId = identity.GetUserId();
+            var claim = new Claim(ClaimTypes.Role, role);
+
+            var result = await userManager.AddClaimAsync(userId, claim);
 
             return Ok();
         }
 
-
+        [HttpGet]
+        [Route("Claim")]
+        [Authorize(Roles = "Admin")]
+        public IEnumerable<object> GetClaim()
+        {
+            var identity = User.Identity as ClaimsIdentity;
+            return identity.Claims.Select(c => new
+            {
+                Type = c.Type,
+                Value = c.Value
+            });
+        }
     }
 }

@@ -6,9 +6,11 @@ namespace basic.ntier.architecture.auth
     using System;
     using System.Web.Http;
     using basic.ntier.architecture.auth.Formats;
-    using basic.ntier.architecture.auth.Infrastructure;
     using basic.ntier.architecture.auth.Providers;
     using Microsoft.Owin.Cors;
+    using Microsoft.Owin.Security;
+    using Microsoft.Owin.Security.DataHandler.Encoder;
+    using Microsoft.Owin.Security.Jwt;
     using Microsoft.Owin.Security.OAuth;
     using Owin;
 
@@ -16,11 +18,20 @@ namespace basic.ntier.architecture.auth
     {
         public void Configuration(IAppBuilder app)
         {
+            //HttpConfiguration config = new HttpConfiguration();
+            //WebApiConfig.Register(config);
+            //app.UseWebApi(config);
+            //app.UseCors(CorsOptions.AllowAll);
+            //ConfigureOAuth(app);
             HttpConfiguration config = new HttpConfiguration();
-            WebApiConfig.Register(config);
-            app.UseWebApi(config);
-            app.UseCors(CorsOptions.AllowAll);
+
+            config.MapHttpAttributeRoutes();
+
             ConfigureOAuth(app);
+
+            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+
+            app.UseWebApi(config);
         }
 
         public void ConfigureOAuth(IAppBuilder app)
@@ -38,6 +49,23 @@ namespace basic.ntier.architecture.auth
             // Token Generation
             app.UseOAuthAuthorizationServer(OAuthServerOptions);
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+
+            //configure authorize attribute
+            var issuer = "http://localhost:60217/";
+            var audience = "099153c2625149bc8ecb3e85e03f0022";
+            var secret = TextEncodings.Base64Url.Decode("IxrAjDoa2FqElO7IhrSrUJELhUckePEPVpaePlS_Xaw");
+
+            // Api controllers with an [Authorize] attribute will be validated with JWT
+            app.UseJwtBearerAuthentication(
+                new JwtBearerAuthenticationOptions
+                {
+                    AuthenticationMode = AuthenticationMode.Active,
+                    AllowedAudiences = new[] { audience },
+                    IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
+                    {
+                        new SymmetricKeyIssuerSecurityTokenProvider(issuer, secret)
+                    }
+                });
         }
     }
 }

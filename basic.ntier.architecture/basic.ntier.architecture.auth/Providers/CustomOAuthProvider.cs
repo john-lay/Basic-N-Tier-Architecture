@@ -3,13 +3,21 @@
     using System.Collections.Generic;
     using System.Security.Claims;
     using System.Threading.Tasks;
+    using basic.ntier.architecture.auth.Models;
     using basic.ntier.architecture.auth.Stores;
+    using Microsoft.AspNet.Identity;
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.OAuth;
 
     public class CustomOAuthProvider : OAuthAuthorizationServerProvider
     {
+        private readonly UserManager<IdentityUser, string> userManager;
 
+        public CustomOAuthProvider()
+        {
+            var userStore = new UserStore<IdentityUser>();
+            userManager = new UserManager<IdentityUser, string>(userStore);
+        }
         public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
             string clientId = string.Empty;
@@ -41,23 +49,25 @@
 
         public override Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            //Dummy check here, you need to do your DB checks against memebrship system http://bit.ly/SPAAuthCode
-            if (context.UserName != context.Password)
+            IdentityUser user = userManager.Find(context.UserName, context.Password);
+
+            if (user == null)
             {
-                context.SetError("invalid_grant", "The user name or password is incorrect");
-                //return;
+                context.SetError("invalid_grant", "The user name or password is incorrect.");
                 return Task.FromResult<object>(null);
             }
+
+            var claims = userManager.GetClaimsAsync(user.Id).Result;
 
             var identity = new ClaimsIdentity("JWT");
 
             identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
-            identity.AddClaim(new Claim("sub", context.UserName));
-            identity.AddClaim(new Claim(ClaimTypes.Role, "Manager"));
-            identity.AddClaim(new Claim(ClaimTypes.Role, "Supervisor"));
+            identity.AddClaim(new Claim("sub", user.Id));
+            identity.AddClaims(claims);
+            //identity.AddClaim(new Claim(ClaimTypes.Role, "Manager"));
+            //identity.AddClaim(new Claim(ClaimTypes.Role, "Supervisor"));
 
             var props = new AuthenticationProperties(new Dictionary<string, string>
                 {

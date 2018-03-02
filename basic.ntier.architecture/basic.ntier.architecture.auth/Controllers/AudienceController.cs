@@ -8,6 +8,13 @@
     [RoutePrefix("api/audience")]
     public class AudienceController : ApiController
     {
+        private AudienceStore audienceStore;
+
+        public AudienceController()
+        {
+            audienceStore = new AudienceStore();
+        }
+
         [Route("")]
         public IHttpActionResult Post(AudienceModel audienceModel)
         {
@@ -16,9 +23,9 @@
                 return BadRequest(ModelState);
             }
 
-            Audience newAudience = AudiencesStore.AddAudience(audienceModel.Name);
+            Audience newAudience = audienceStore.AddAudience(audienceModel.Name);
 
-            return Ok<Audience>(newAudience);
+            return Ok(newAudience);
         }
     }
 }

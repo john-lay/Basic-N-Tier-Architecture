@@ -12,12 +12,15 @@
     public class CustomOAuthProvider : OAuthAuthorizationServerProvider
     {
         private readonly UserManager<IdentityUser, string> userManager;
+        private AudienceStore audienceStore;
 
         public CustomOAuthProvider()
         {
             var userStore = new UserStore<IdentityUser>();
             userManager = new UserManager<IdentityUser, string>(userStore);
+            audienceStore = new AudienceStore();
         }
+
         public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
             string clientId = string.Empty;
@@ -35,7 +38,7 @@
                 return Task.FromResult<object>(null);
             }
 
-            var audience = AudiencesStore.FindAudience(context.ClientId);
+            var audience = audienceStore.FindAudience(context.ClientId);
 
             if (audience == null)
             {
@@ -49,8 +52,9 @@
 
         public override Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });           
 
+            // check credentials for valid user
             IdentityUser user = userManager.Find(context.UserName, context.Password);
 
             if (user == null)

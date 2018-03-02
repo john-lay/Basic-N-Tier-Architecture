@@ -1,27 +1,35 @@
 ﻿namespace basic.ntier.architecture.auth.Stores
 {
     using System;
-    using System.Collections.Concurrent;
     using System.Security.Cryptography;
     using basic.ntier.architecture.auth.Entities;
+    using basic.ntier.architecture.auth.Infrastructure;
+    using basic.ntier.architecture.auth.Repositories;
     using Microsoft.Owin.Security.DataHandler.Encoder;
 
-    public static class AudiencesStore
+    public class AudienceStore
     {
-        public static ConcurrentDictionary<string, Audience> AudiencesList = new ConcurrentDictionary<string, Audience>();
+        private AudienceRepository audienceRepo;
 
-        static AudiencesStore()
+        public AudienceStore()
         {
-            AudiencesList.TryAdd("099153c2625149bc8ecb3e85e03f0022",
-                                new Audience
-                                {
-                                    ClientId = "099153c2625149bc8ecb3e85e03f0022",
-                                    Base64Secret = "IxrAjDoa2FqElO7IhrSrUJELhUckePEPVpaePlS_Xaw",
-                                    Name = "ResourceServer.Api 1"
-                                });
+            audienceRepo = new AudienceRepository(new DbManager());
         }
 
-        public static Audience AddAudience(string name)
+        //public static ConcurrentDictionary<string, Audience> AudiencesList = new ConcurrentDictionary<string, Audience>();
+
+        //static AudiencesStore()
+        //{
+        //    AudiencesList.TryAdd("099153c2625149bc8ecb3e85e03f0022",
+        //                        new Audience
+        //                        {
+        //                            ClientId = "099153c2625149bc8ecb3e85e03f0022",
+        //                            Base64Secret = "IxrAjDoa2FqElO7IhrSrUJELhUckePEPVpaePlS_Xaw",
+        //                            Name = "ResourceServer.Api 1"
+        //                        });
+        //}
+
+        public Audience AddAudience(string name)
         {
             var clientId = Guid.NewGuid().ToString("N");
 
@@ -30,18 +38,22 @@
             var base64Secret = TextEncodings.Base64Url.Encode(key);
 
             Audience newAudience = new Audience { ClientId = clientId, Base64Secret = base64Secret, Name = name };
-            AudiencesList.TryAdd(clientId, newAudience);
+            audienceRepo.Insert(newAudience);
+            //AudiencesList.TryAdd(clientId, newAudience);
             return newAudience;
         }
 
-        public static Audience FindAudience(string clientId)
+        public Audience FindAudience(string clientId)
         {
-            Audience audience = null;
-            if (AudiencesList.TryGetValue(clientId, out audience))
-            {
-                return audience;
-            }
-            return null;
+            var result = audienceRepo.GetAudienceById(clientId);
+
+            return result;
+            //Audience audience = null;
+            //if (AudiencesList.TryGetValue(clientId, out audience))
+            //{
+            //    return audience;
+            //}
+            //return null;
         }
     }
 }

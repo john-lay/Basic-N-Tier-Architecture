@@ -11,12 +11,13 @@
     public class CustomJwtFormat : ISecureDataFormat<AuthenticationTicket>
     {
         private const string AudiencePropertyKey = "audience";
-
         private readonly string _issuer = string.Empty;
+        private AudienceStore audienceStore;
 
         public CustomJwtFormat(string issuer)
         {
             _issuer = issuer;
+            audienceStore = new AudienceStore();
         }
 
         public string Protect(AuthenticationTicket data)
@@ -30,7 +31,7 @@
 
             if (string.IsNullOrWhiteSpace(audienceId)) throw new InvalidOperationException("AuthenticationTicket.Properties does not include audience");
 
-            Audience audience = AudiencesStore.FindAudience(audienceId);
+            Audience audience = audienceStore.FindAudience(audienceId);
 
             string symmetricKeyAsBase64 = audience.Base64Secret;
 

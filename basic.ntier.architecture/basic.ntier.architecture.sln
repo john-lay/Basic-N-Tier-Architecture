@@ -50,6 +50,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console", "Console", "{CF13
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecretHash", "SecretHash\SecretHash.csproj", "{DF7904AA-42C0-439F-BFBC-25129A2F7599}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{FD7F8DB9-D80E-4EC1-BA63-31FEF552E515}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "basic.ntier.architecture.auth.web", "basic.ntier.architecture.auth.web\basic.ntier.architecture.auth.web.csproj", "{B822632B-5982-44A6-9F39-5B6026830649}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,6 +92,10 @@ Global
 		{DF7904AA-42C0-439F-BFBC-25129A2F7599}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF7904AA-42C0-439F-BFBC-25129A2F7599}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF7904AA-42C0-439F-BFBC-25129A2F7599}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B822632B-5982-44A6-9F39-5B6026830649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B822632B-5982-44A6-9F39-5B6026830649}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B822632B-5982-44A6-9F39-5B6026830649}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B822632B-5982-44A6-9F39-5B6026830649}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -104,5 +112,7 @@ Global
 		{4A2D4019-04D6-4678-9067-C19CFC3F0564} = {EECC91BB-6D9F-43F0-9C5D-5C9A0B17584F}
 		{DB9FE64B-6F64-4FCC-9AD0-541F40C9E97C} = {EECC91BB-6D9F-43F0-9C5D-5C9A0B17584F}
 		{DF7904AA-42C0-439F-BFBC-25129A2F7599} = {CF13CB58-50D7-4563-A40E-1BEF0FA63374}
+		{FD7F8DB9-D80E-4EC1-BA63-31FEF552E515} = {EECC91BB-6D9F-43F0-9C5D-5C9A0B17584F}
+		{B822632B-5982-44A6-9F39-5B6026830649} = {FD7F8DB9-D80E-4EC1-BA63-31FEF552E515}
 	EndGlobalSection
 EndGlobal

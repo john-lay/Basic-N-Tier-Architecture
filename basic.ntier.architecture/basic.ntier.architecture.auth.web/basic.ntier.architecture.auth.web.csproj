@@ -882,7 +882,11 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\App\AuthApp.ts" />
-    <TypeScriptCompile Include="Scripts\App\SignIn\SignInController.ts" />
+    <TypeScriptCompile Include="Scripts\App\BaseService.ts" />
+    <TypeScriptCompile Include="Scripts\App\Login\ILoginModel.ts" />
+    <TypeScriptCompile Include="Scripts\App\Login\ITokenModel.ts" />
+    <TypeScriptCompile Include="Scripts\App\Login\LoginController.ts" />
+    <TypeScriptCompile Include="Scripts\App\Login\LoginService.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
@@ -891,7 +895,7 @@
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-route.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
-    <Content Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

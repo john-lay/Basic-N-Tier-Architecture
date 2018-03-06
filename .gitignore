@@ -1000,3 +1000,13 @@ basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/typings/angul
 basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/typings/angularjs/angular-animate.d.ts
 basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/typings/angularjs/angular-sanitize.d.ts
 basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/typings/angularjs/angular-route.d.ts
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Login/LoginService.js.map
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Login/LoginService.js
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Login/LoginController.js
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Login/ITokenModel.js.map
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Login/ILoginModel.js
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/BaseService.js.map
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/BaseService.js
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Login/LoginController.js.map
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Login/ILoginModel.js.map
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Login/ITokenModel.js

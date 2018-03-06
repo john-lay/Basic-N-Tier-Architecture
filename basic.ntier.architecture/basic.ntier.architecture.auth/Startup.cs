@@ -18,24 +18,20 @@ namespace basic.ntier.architecture.auth
     {
         public void Configuration(IAppBuilder app)
         {
-            //HttpConfiguration config = new HttpConfiguration();
-            //WebApiConfig.Register(config);
-            //app.UseWebApi(config);
-            //app.UseCors(CorsOptions.AllowAll);
-            //ConfigureOAuth(app);
             HttpConfiguration config = new HttpConfiguration();
 
             config.MapHttpAttributeRoutes();
 
             ConfigureOAuth(app);
 
-            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            //app.UseCors(CorsOptions.AllowAll);
 
             app.UseWebApi(config);
         }
 
         public void ConfigureOAuth(IAppBuilder app)
         {
+
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {
                 //For Dev enviroment only (on production should be AllowInsecureHttp = false)
@@ -43,7 +39,7 @@ namespace basic.ntier.architecture.auth
                 TokenEndpointPath = new PathString("/oauth2/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(30),
                 Provider = new CustomOAuthProvider(),
-                AccessTokenFormat = new CustomJwtFormat("http://localhost:60217/")
+                AccessTokenFormat = new CustomJwtFormat("http://localhost.ntier.auth/")                
             };
 
             // Token Generation
@@ -51,7 +47,7 @@ namespace basic.ntier.architecture.auth
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
 
             //configure authorize attribute
-            var issuer = "http://localhost:60217/";
+            var issuer = "http://localhost.ntier.auth/";
             var audience = "099153c2625149bc8ecb3e85e03f0022";
             var secret = TextEncodings.Base64Url.Decode("IxrAjDoa2FqElO7IhrSrUJELhUckePEPVpaePlS_Xaw");
 

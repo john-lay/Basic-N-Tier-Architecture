@@ -1,33 +1,30 @@
 ﻿<!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en" ng-app="AuthApp">
 <head>
     <meta charset="utf-8">
     <title>Login</title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/sign-in.css" rel="stylesheet" />
+    <link href="Content/loading-bar.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container" ng-controller="LoginController">
-        <form class="form-signin" ng-submit="submit()">
-            <h2 class="form-signin-heading">Please Login</h2>
-            <label for="inputEmail" class="sr-only">Email address</label>
-            <input ng-model="vm.username" type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input ng-model="vm.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-            <div class="checkbox">
-                <label>
-                    <input ng-model="vm.rememberMe" type="checkbox" value="remember-me"> Remember me
-                </label>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        </form>
+    <div class="container">
+        <div data-ng-view="">
+        </div>
     </div>
-    <p>Nothing here {{'yet' + '!'}}</p>
-
+    <!-- 3rd party libraries -->
     <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/angular-local-storage.js"></script>
+    <script src="Scripts/loading-bar.min.js"></script>
+    <!-- Load app main script -->
     <script src="Scripts/App/AuthApp.js"></script>
+    <!-- Load services -->
+    <script src="Scripts/App/Login/AuthInterceptorService.js"></script>
     <script src="Scripts/App/BaseService.js"></script>
     <script src="Scripts/App/Login/LoginService.js"></script>
+    <!-- Load controllers -->
     <script src="Scripts/App/Login/LoginController.js"></script>
+    <script src="Scripts/App/Home/HomeController.js"></script>
 </body>
 </html>

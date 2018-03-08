@@ -1,0 +1,15 @@
+﻿<div class="container" ng-controller="LoginController">
+    <form class="form-signin" ng-submit="submit()">
+        <h2 class="form-signin-heading">Login</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input ng-model="vm.username" type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input ng-model="vm.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+            <label>
+                <input ng-model="vm.rememberMe" type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+</div>

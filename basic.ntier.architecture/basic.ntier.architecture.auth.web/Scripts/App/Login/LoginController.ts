@@ -12,9 +12,9 @@
     /*** ANGULAR CONTROLLER ***/
     export class LoginController {
 
-        static $inject = ["$scope", "LoginService"];
+        static $inject = ["$scope", "LoginService", "$location"];
 
-        constructor($scope: LoginModule.ILoginScope, LoginService: LoginModule.ILoginService) {
+        constructor($scope: LoginModule.ILoginScope, LoginService: LoginModule.ILoginService, $location: ng.ILocationService) {
 
             //LoginScope = $scope;
 
@@ -25,11 +25,9 @@
             };
             
             $scope.submit = () => {
-                console.log("Login form submitted", $scope.vm);
                 LoginService.Login($scope.vm).then((response: ITokenModel) => {
-                    console.log(response);
-                });
-                
+                    $location.path('/home');
+                });                
             }
         }
     }

@@ -66,7 +66,21 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\angular-toastr.css" />
+    <Content Include="Content\angular-toastr.min.css" />
+    <Content Include="Content\loading-bar.css" />
+    <Content Include="Content\loading-bar.min.css" />
+    <Content Include="home.html" />
+    <Content Include="index.html" />
     <Content Include="packages.config" />
+    <Content Include="Scripts\angular-local-storage.js" />
+    <Content Include="Scripts\angular-local-storage.min.js" />
+    <Content Include="Scripts\angular-toastr.js" />
+    <Content Include="Scripts\angular-toastr.min.js" />
+    <Content Include="Scripts\angular-toastr.tpls.js" />
+    <Content Include="Scripts\angular-toastr.tpls.min.js" />
+    <Content Include="Scripts\loading-bar.js" />
+    <Content Include="Scripts\loading-bar.min.js" />
     <Content Include="Scripts\version.json" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular.min.js.map" />
@@ -82,6 +96,7 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Scripts\angular-local-storage.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -96,7 +111,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\sign-in.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="index.html" />
+    <Content Include="login.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -883,10 +898,17 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\App\AuthApp.ts" />
     <TypeScriptCompile Include="Scripts\App\BaseService.ts" />
+    <TypeScriptCompile Include="Scripts\App\Home\HomeController.ts" />
+    <TypeScriptCompile Include="Scripts\App\Login\AuthInterceptorService.ts" />
+    <TypeScriptCompile Include="Scripts\App\Login\AuthService.ts" />
+    <TypeScriptCompile Include="Scripts\App\Login\IAuthModel.ts" />
     <TypeScriptCompile Include="Scripts\App\Login\ILoginModel.ts" />
     <TypeScriptCompile Include="Scripts\App\Login\ITokenModel.ts" />
     <TypeScriptCompile Include="Scripts\App\Login\LoginController.ts" />
     <TypeScriptCompile Include="Scripts\App\Login\LoginService.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angular-loading-bar\index.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angular-local-storage\index.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angular-toastr\index.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />

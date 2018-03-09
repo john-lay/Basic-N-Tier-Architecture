@@ -3,31 +3,35 @@
 
     export interface ILoginScope extends ng.IScope {
         vm: ILoginModel;
+        Auth: IAuthModel;
         submit(): void;
     }
 
     // Expose outside of the controller
-    //export var LoginScope: ILoginScope;
+    export var LoginScope: ILoginScope;
 
     /*** ANGULAR CONTROLLER ***/
     export class LoginController {
 
-        static $inject = ["$scope", "LoginService", "$location"];
+        static $inject = ["$scope", "AuthService", "$location"];
 
-        constructor($scope: LoginModule.ILoginScope, LoginService: LoginModule.ILoginService, $location: ng.ILocationService) {
+        constructor($scope: LoginModule.ILoginScope, AuthService: AuthModule.IAuthService, $location: ng.ILocationService) {
 
-            //LoginScope = $scope;
+            LoginScope = $scope;
 
             $scope.vm = {
                 username: 'test',
                 password: 'secret',
                 rememberMe: false
             };
+
+            $scope.Auth = AuthService.Auth;
             
             $scope.submit = () => {
-                LoginService.Login($scope.vm).then((response: ITokenModel) => {
+                AuthService.Login($scope.vm).then((response: ITokenModel) => {
                     $location.path('/home');
-                });                
+                    location.reload(); // show the nav bar on login
+                });
             }
         }
     }

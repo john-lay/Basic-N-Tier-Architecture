@@ -14,14 +14,14 @@ app.config(function ($routeProvider) {
         templateUrl: "/login.html"
     });
 
+    $routeProvider.when("/roles", {
+        controller: "RolesController",
+        templateUrl: "/roles.html"
+    });
+
     $routeProvider.otherwise({ redirectTo: "/login" });
 });
 
-app.run(['LoginService', function (LoginService: LoginModule.ILoginService) {
-    LoginService.FillAuthData();
+app.run(['AuthService', function (AuthService: AuthModule.IAuthService) {
+    AuthService.FillAuthData();
 }]);
-
-app.config(function ($httpProvider) {
-    $httpProvider.interceptors.push('authInterceptorService');
-});
-

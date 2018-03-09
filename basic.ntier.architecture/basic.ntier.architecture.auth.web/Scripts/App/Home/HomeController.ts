@@ -11,13 +11,13 @@
     /*** ANGULAR CONTROLLER ***/
     export class HomeController {
 
-        static $inject = ["$scope", "LoginService", "$location"];
+        static $inject = ["$scope", "AuthService", "$location"];
 
-        constructor($scope: HomeModule.IHomeScope, LoginService: LoginModule.ILoginService, $location: ng.ILocationService) {
+        constructor($scope: HomeModule.IHomeScope, AuthService: AuthModule.IAuthService, $location: ng.ILocationService) {
 
             //HomeScope = $scope;
 
-            $scope.vm = LoginService.Auth;
+            $scope.vm = AuthService.Auth;
         }
     }
 }

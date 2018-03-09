@@ -73,6 +73,7 @@
     <Content Include="home.html" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
+    <Content Include="roles.html" />
     <Content Include="Scripts\angular-local-storage.js" />
     <Content Include="Scripts\angular-local-storage.min.js" />
     <Content Include="Scripts\angular-toastr.js" />
@@ -109,7 +110,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\sign-in.css" />
+    <Content Include="Content\login.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="login.html" />
     <Content Include="Scripts\angular-animate.js" />
@@ -899,13 +900,16 @@
     <TypeScriptCompile Include="Scripts\App\AuthApp.ts" />
     <TypeScriptCompile Include="Scripts\App\BaseService.ts" />
     <TypeScriptCompile Include="Scripts\App\Home\HomeController.ts" />
-    <TypeScriptCompile Include="Scripts\App\Login\AuthInterceptorService.ts" />
-    <TypeScriptCompile Include="Scripts\App\Login\AuthService.ts" />
-    <TypeScriptCompile Include="Scripts\App\Login\IAuthModel.ts" />
+    <TypeScriptCompile Include="Scripts\App\Auth\AuthInterceptorService.ts" />
+    <TypeScriptCompile Include="Scripts\App\Auth\IAuthModel.ts" />
+    <TypeScriptCompile Include="Scripts\App\Auth\IAuthorizationData.ts" />
     <TypeScriptCompile Include="Scripts\App\Login\ILoginModel.ts" />
     <TypeScriptCompile Include="Scripts\App\Login\ITokenModel.ts" />
     <TypeScriptCompile Include="Scripts\App\Login\LoginController.ts" />
-    <TypeScriptCompile Include="Scripts\App\Login\LoginService.ts" />
+    <TypeScriptCompile Include="Scripts\App\Auth\AuthService.ts" />
+    <TypeScriptCompile Include="Scripts\App\Nav\INavModel.ts" />
+    <TypeScriptCompile Include="Scripts\App\Nav\NavController.ts" />
+    <TypeScriptCompile Include="Scripts\App\Roles\RolesController.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-loading-bar\index.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-local-storage\index.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-toastr\index.d.ts" />

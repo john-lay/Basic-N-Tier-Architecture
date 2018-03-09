@@ -4,14 +4,26 @@
     <meta charset="utf-8">
     <title>Login</title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/sign-in.css" rel="stylesheet" />
+    <link href="Content/login.css" rel="stylesheet" />
     <link href="Content/loading-bar.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container">
-        <div data-ng-view="">
+    <nav class="navbar navbar-default" ng-controller="NavController" ng-show="vm.Auth.isAuth">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Auth Manager</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li ng-class="{'active': vm.page === '/home'}"><a href="/#!/home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                <li ng-class="{'active': vm.page === '/users'}"><a href="/#!/users"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Manage Users</a></li>
+                <li ng-class="{'active': vm.page === '/roles'}"><a href="/#!/roles"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Manage Roles</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" ng-click="logout()"> Log out</a></li>
+            </ul>
         </div>
-    </div>
+    </nav>
+    <div id="MainContainer" data-ng-view=""></div>
     <!-- 3rd party libraries -->
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular-route.min.js"></script>
@@ -22,9 +34,11 @@
     <!-- Load services -->
     <script src="Scripts/App/Login/AuthInterceptorService.js"></script>
     <script src="Scripts/App/BaseService.js"></script>
-    <script src="Scripts/App/Login/LoginService.js"></script>
+    <script src="Scripts/App/Auth/AuthService.js"></script>
     <!-- Load controllers -->
+    <script src="Scripts/App/Nav/NavController.js"></script>
     <script src="Scripts/App/Login/LoginController.js"></script>
     <script src="Scripts/App/Home/HomeController.js"></script>
+    <script src="Scripts/App/Roles/RolesController.js"></script>
 </body>
 </html>

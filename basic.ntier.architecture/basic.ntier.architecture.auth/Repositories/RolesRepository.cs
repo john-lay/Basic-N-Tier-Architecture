@@ -40,7 +40,7 @@
         /// <returns></returns>
         public void Insert(IdentityRole role)
         {
-            db.Connection.Execute(@"INSERT INTO [AspNetRoles] (Name) VALUES (@Name)",
+            db.Connection.Execute(@"INSERT INTO [AspNetRoles] (Id, Name) VALUES (NEWID(), @Name)",
                 new { Name = role.Name });
         }
 

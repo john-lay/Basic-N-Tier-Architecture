@@ -3,6 +3,9 @@
 
     export interface IRolesScope extends ng.IScope {
         vm: IRolesViewModel;
+
+        getRoles(): void;
+        addRole(): void;        
     }
 
     // Expose outside of the controller
@@ -17,11 +20,25 @@
 
             //RolesScope = $scope;
 
-            $scope.vm = { Roles: [] };
+            $scope.vm = {
+                Roles: [],
+                RoleName: ""
+            };            
 
-            RolesService.GetRoles().then((response: IRoleModel[]) => {
-                $scope.vm.Roles = response;
-            });
+            $scope.addRole = () => {
+                RolesService.AddRole($scope.vm.RoleName).then((response: any) => {
+                    $scope.getRoles();
+                });
+            } 
+
+            $scope.getRoles = () => {
+                RolesService.GetRoles().then((response: IRoleModel[]) => {
+                    $scope.vm.Roles = response;
+                });
+            }
+
+            // INIT
+            $scope.getRoles();
         }
     }
 }

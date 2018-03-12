@@ -50,11 +50,12 @@
         [Authorize(Roles = "Admin")]
         public async Task<IHttpActionResult> AddClaim([FromBody] string role)
         {
-            var identity = User.Identity as ClaimsIdentity;
-            var userId = identity.GetUserId();
-            var claim = new Claim(ClaimTypes.Role, role);
+            //var identity = User.Identity as ClaimsIdentity;
+            //var userId = identity.GetUserId();
+            //var claim = new Claim(ClaimTypes.Role, role);
 
-            var result = await userManager.AddClaimAsync(userId, claim);
+            //var result = await userManager.AddClaimAsync(userId, claim);
+            await roleStore.CreateAsync(new IdentityRole(role));
 
             return Ok();
         }

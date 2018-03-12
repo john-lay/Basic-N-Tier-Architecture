@@ -3,6 +3,7 @@
 
     export interface IRolesService {
         GetRoles(): ng.IPromise<IRoleModel[]>;
+        AddRole(roleName: string): ng.IPromise<any>;
     }
 
     export class RolesService extends BaseModule.BaseService implements IRolesService {
@@ -20,6 +21,16 @@
             return this.$http.get(this.$baseUrl + "/api/account/claim", { headers: { 'Authorization': 'Bearer ' + this.AuthService.Auth.token } })
                 .then(
                 (response: ng.IHttpPromiseCallbackArg<IRoleModel[]>) => {
+                    return this.$q.resolve(response.data);
+                }, (response: ng.IHttpPromiseCallbackArg<any>) => {
+                    return this.$q.reject(response.statusText);
+                });
+        }
+
+        AddRole(roleName: string): ng.IPromise<any> {
+            return this.$http.post(this.$baseUrl + "/api/account/claim", JSON.stringify(roleName), { headers: { 'Authorization': 'Bearer ' + this.AuthService.Auth.token } })
+                .then(
+                (response: ng.IHttpPromiseCallbackArg<any>) => {
                     return this.$q.resolve(response.data);
                 }, (response: ng.IHttpPromiseCallbackArg<any>) => {
                     return this.$q.reject(response.statusText);

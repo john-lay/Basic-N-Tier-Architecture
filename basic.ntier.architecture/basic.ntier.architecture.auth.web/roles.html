@@ -1,18 +1,31 @@
 ﻿<div class="container" ng-controller="RolesController">
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Edit</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="role in vm.Roles">
-                <td>{{role.Id}}</td>
-                <td>{{role.Name}}</td>
-                <td><a class="btn btn-default" href="#">Edit</a></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-md-offset-8 col-md-4">
+            <div class="input-group">
+                <input type="text" ng-model="vm.RoleName" class="form-control" placeholder="Add role...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" ng-disabled="vm.RoleName == ''" ng-click="addRole()" type="button">Add Role</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <table class="table table-hover" ng-hide="vm.Roles.length === 0">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="role in vm.Roles">
+                    <td>{{role.Id}}</td>
+                    <td>{{role.Name}}</td>
+                    <td><a class="btn btn-default" href="#">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

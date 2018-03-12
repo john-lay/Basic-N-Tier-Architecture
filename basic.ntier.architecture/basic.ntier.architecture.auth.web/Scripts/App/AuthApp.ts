@@ -1,6 +1,6 @@
 ﻿declare var app: ng.IModule;
 
-var app = angular.module('AuthApp', ['ngRoute', 'LocalStorageModule', 'angular-loading-bar']);
+var app = angular.module('AuthApp', ['ngRoute', 'LocalStorageModule', 'angular-loading-bar', 'toastr']);
 
 app.config(function ($routeProvider) {
 

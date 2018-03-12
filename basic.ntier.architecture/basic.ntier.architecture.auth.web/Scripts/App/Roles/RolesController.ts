@@ -2,7 +2,7 @@
     'use strict';
 
     export interface IRolesScope extends ng.IScope {
-        vm: IAuthModel;
+        vm: IRolesViewModel;
     }
 
     // Expose outside of the controller
@@ -11,13 +11,17 @@
     /*** ANGULAR CONTROLLER ***/
     export class RolesController {
 
-        static $inject = ["$scope", "AuthService", "$location"];
+        static $inject = ["$scope", "AuthService", "$location", "RolesService"];
 
-        constructor($scope: RolesModule.IRolesScope, AuthService: AuthModule.IAuthService, $location: ng.ILocationService) {
+        constructor($scope: RolesModule.IRolesScope, AuthService: AuthModule.IAuthService, $location: ng.ILocationService, RolesService: RolesModule.IRolesService) {
 
             //RolesScope = $scope;
 
-            $scope.vm = AuthService.Auth;
+            $scope.vm = { Roles: [] };
+
+            RolesService.GetRoles().then((response: IRoleModel[]) => {
+                $scope.vm.Roles = response;
+            });
         }
     }
 }

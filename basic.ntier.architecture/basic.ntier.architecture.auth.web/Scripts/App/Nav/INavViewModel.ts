@@ -1,4 +1,4 @@
-﻿interface INavModel {
+﻿interface INavViewModel {
     Auth: IAuthModel;
     page: string;
 }

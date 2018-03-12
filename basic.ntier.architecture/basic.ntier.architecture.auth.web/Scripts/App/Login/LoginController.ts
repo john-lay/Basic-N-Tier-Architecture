@@ -2,7 +2,7 @@
     'use strict';
 
     export interface ILoginScope extends ng.IScope {
-        vm: ILoginModel;
+        vm: ILoginViewModel;
         Auth: IAuthModel;
         submit(): void;
     }

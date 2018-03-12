@@ -1,6 +1,7 @@
 ﻿namespace basic.ntier.architecture.auth.Stores
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using Infrastructure;
@@ -11,7 +12,7 @@
     /// <summary>
     /// Class that implements the key ASP.NET Identity role store iterfaces
     /// </summary>
-    public class RoleStore<TRole> : IQueryableRoleStore<TRole, int>
+    public class RoleStore<TRole> : IQueryableRoleStore<TRole, string>
         where TRole : IdentityRole
     {
         private RolesRepository rolesRepo;
@@ -70,9 +71,9 @@
             return Task.FromResult<Object>(null);
         }
 
-        public Task<TRole> FindByIdAsync(int roleId)
+        public Task<TRole> FindByIdAsync(string roleId)
         {
-            TRole result = rolesRepo.GetRoleById(roleId.ToString()) as TRole;
+            TRole result = rolesRepo.GetRoleById(roleId) as TRole;
 
             return Task.FromResult<TRole>(result);
         }
@@ -94,6 +95,13 @@
             rolesRepo.Update(role);
 
             return Task.FromResult<Object>(null);
+        }
+
+        public List<TRole> GetRoles()
+        {
+            List<TRole> result = rolesRepo.GetRoles() as List<TRole>;
+
+            return result;
         }
 
         public void Dispose()

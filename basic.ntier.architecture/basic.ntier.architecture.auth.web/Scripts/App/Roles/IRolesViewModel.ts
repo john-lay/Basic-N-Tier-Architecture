@@ -1,0 +1,3 @@
+﻿interface IRolesViewModel {
+    Roles: IRoleModel[];
+}

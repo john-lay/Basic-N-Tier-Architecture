@@ -2,7 +2,7 @@
     'use strict';
 
     export interface INavScope extends ng.IScope {
-        vm: INavModel;
+        vm: INavViewModel;
 
         logout(): void;
     }
@@ -13,9 +13,9 @@
     /*** ANGULAR CONTROLLER ***/
     export class NavController {
 
-        static $inject = ["$scope", "AuthService", "$location"];
+        static $inject = ["$scope", "AuthService", "$location", "toastr"];
 
-        constructor($scope: NavModule.INavScope, AuthService: AuthModule.IAuthService, $location: ng.ILocationService) {
+        constructor($scope: NavModule.INavScope, AuthService: AuthModule.IAuthService, $location: ng.ILocationService, toastr: angular.toastr.IToastrService) {
 
             NavScope = $scope;
 
@@ -28,6 +28,7 @@
                 $scope.vm.Auth.isAuth = false; // hide the nav bar on logout
                 AuthService.Logout();
                 $location.path('/login');
+                toastr.success('You have successfully logged out');
             }
         }
     }

@@ -1,6 +1,8 @@
 ﻿namespace basic.ntier.architecture.auth.Repositories
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Dapper;
     using Infrastructure;
     using Models;
@@ -26,7 +28,7 @@
         /// </summary>
         /// <param name="roleId">The role Id</param>
         /// <returns></returns>
-        public void Delete(int roleId)
+        public void Delete(string roleId)
         {
             db.Connection.Execute(@"DELETE FROM [AspNetRoles] WHERE Id = @Id", new { Id = roleId });
         }
@@ -74,7 +76,7 @@
 
             if (roleName != null)
             {
-                role = new IdentityRole(roleName, Convert.ToInt32(roleId));
+                role = new IdentityRole(roleName, roleId);
             }
 
             return role;
@@ -92,10 +94,16 @@
 
             if (string.IsNullOrEmpty(roleId))
             {
-                role = new IdentityRole(roleName, Convert.ToInt32(roleId));
+                role = new IdentityRole(roleName, roleId);
             }
 
             return role;
+        }
+
+        public List<IdentityRole> GetRoles()
+        {
+            return db.Connection.Query<IdentityRole>("SELECT * FROM [AspNetRoles]")
+                .ToList();
         }
 
         public void Update(IdentityRole role)

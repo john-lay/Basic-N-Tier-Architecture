@@ -4,7 +4,7 @@
     export interface IAuthService {
         Auth: IAuthModel;
 
-        Login(model: ILoginModel): ng.IPromise<ITokenModel>;
+        Login(model: ILoginViewModel): ng.IPromise<ITokenModel>;
         Logout(): void;
         FillAuthData(): void;
     }
@@ -22,11 +22,12 @@
         // PROPERTIES
         Auth = {
             isAuth: false,
-            username: ""
+            username: "",
+            token: ""
         }
 
         // METHODS
-        Login(model: ILoginModel): ng.IPromise<ITokenModel> {
+        Login(model: ILoginViewModel): ng.IPromise<ITokenModel> {
 
             var data = 'client_id=099153c2625149bc8ecb3e85e03f0022';
             data += '&grant_type=password';
@@ -40,8 +41,9 @@
 
                     this.Auth = {
                         isAuth: true,
-                        username: model.username
-                    };
+                        username: model.username,
+                        token: response.data.access_token
+                    };                    
                     
                     return this.$q.resolve(response.data);
                 }, (response: ng.IHttpPromiseCallbackArg<any>) => {
@@ -54,7 +56,8 @@
 
             this.Auth = {
                 isAuth: false,
-                username: ""
+                username: "",
+                token: ""
             }
         }
 
@@ -65,6 +68,7 @@
             if (authData) {
                 this.Auth.isAuth = true;
                 this.Auth.username = authData.username;
+                this.Auth.token = authData.token;
             }
         }
     }

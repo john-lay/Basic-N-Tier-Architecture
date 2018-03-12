@@ -1050,3 +1050,13 @@ basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Roles/Rol
 basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Roles/RolesController.js
 basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Nav/NavController.js.map
 basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Nav/NavController.js
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Login/ILoginViewModel.js.map
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Login/ILoginViewModel.js
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Roles/RolesService.js.map
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Roles/RolesService.js
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Roles/IRolesViewModel.js.map
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Roles/IRolesViewModel.js
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Roles/IRoleModel.js.map
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Roles/IRoleModel.js
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Nav/INavViewModel.js.map
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Nav/INavViewModel.js

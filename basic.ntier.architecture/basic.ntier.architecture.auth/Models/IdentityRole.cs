@@ -2,7 +2,7 @@
 {
     using Microsoft.AspNet.Identity;
 
-    public class IdentityRole : IRole<int>
+    public class IdentityRole : IRole<string>
     {
         /// <summary>
         /// Default constructor for Role 
@@ -22,7 +22,7 @@
             Name = name;
         }
 
-        public IdentityRole(string name, int id)
+        public IdentityRole(string name, string id)
         {
             Name = name;
             Id = id;
@@ -31,7 +31,7 @@
         /// <summary>
         /// Role ID
         /// </summary>
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Role name

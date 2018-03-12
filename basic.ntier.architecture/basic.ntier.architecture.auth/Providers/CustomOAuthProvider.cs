@@ -52,8 +52,6 @@
 
         public override Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });           
-
             // check credentials for valid user
             IdentityUser user = userManager.Find(context.UserName, context.Password);
 

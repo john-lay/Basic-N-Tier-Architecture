@@ -30,6 +30,18 @@
                 $location.path('/login');
                 toastr.success('You have successfully logged out');
             }
+
+            // update the active css class when routing
+            $scope.$on('$locationChangeSuccess', (event) => {    
+                $scope.vm.page = $location.path();
+            });
+
+            // log the user out after 30 minutes (the lifetime of a token)
+            if ($scope.vm.Auth.isAuth) {
+                setTimeout(() => {
+                    $scope.logout();
+                }, 1800000);
+            }            
         }
     }
 }

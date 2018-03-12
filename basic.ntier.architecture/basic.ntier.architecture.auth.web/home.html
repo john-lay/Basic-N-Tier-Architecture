@@ -1,9 +1,24 @@
-﻿<div class="container" ng-controller="HomeController">    
+﻿<div class="container" ng-controller="HomeController">
     <div class="jumbotron">
-        <h1>Welcome {{ vm.username }}</h1>
-        <p>
-            You are in the auth administration manager. To get started click on the 
-            <b>manage users</b> or <b>manage roles</b> link in the navigation.
-        </p>
+        <div class="row">
+            <h2>Welcome {{ vm.username }},</h2>
+            <p>
+                You are in the auth admin control panel. To get started click on the
+                <b>manage users</b> or <b>manage roles</b> link in the navigation.
+            </p>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-offset-2 col-md-3">
+                <a href="/#!/users" class="btn btn-default" style="line-height: 48px; font-size: 24px">
+                    <span class="glyphicon glyphicon-user" style="display: block; font-size: 72px"></span> Manage Users
+                </a>
+            </div>
+            <div class="col-md-offset-2 col-md-3">
+                <a href="/#!/roles" class="btn btn-default" style="line-height: 48px; font-size: 24px">
+                    <span class="glyphicon glyphicon-eye-open" style="display: block; font-size: 72px"></span> Manage Roles
+                </a>
+            </div>
+        </div>
     </div>
 </div>

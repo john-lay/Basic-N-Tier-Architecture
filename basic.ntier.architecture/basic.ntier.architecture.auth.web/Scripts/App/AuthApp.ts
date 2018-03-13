@@ -2,6 +2,10 @@
 
 var app = angular.module('AuthApp', ['ngRoute', 'LocalStorageModule', 'angular-loading-bar', 'toastr']);
 
+app.config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = false;
+}]);
+
 app.config(function ($routeProvider) {
 
     $routeProvider.when("/home", {
@@ -17,6 +21,11 @@ app.config(function ($routeProvider) {
     $routeProvider.when("/roles", {
         controller: "RolesController",
         templateUrl: "/roles.html"
+    });
+
+    $routeProvider.when("/users", {
+        controller: "UsersController",
+        templateUrl: "/users.html"
     });
 
     $routeProvider.otherwise({ redirectTo: "/login" });

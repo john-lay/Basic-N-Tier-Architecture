@@ -1060,3 +1060,5 @@ basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Roles/IRo
 basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Roles/IRoleModel.js
 basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Nav/INavViewModel.js.map
 basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Nav/INavViewModel.js
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Users/UsersController.js
+basic.ntier.architecture/basic.ntier.architecture.auth.web/Scripts/App/Users/UsersController.js.map
